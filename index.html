@@ -22,6 +22,18 @@
 
 <main id="app">
 
+  <!-- パスコード画面 -->
+  <section id="screen-lock" class="screen">
+    <h1 data-i18n="lockTitle">パスコードを入力してください</h1>
+    <div class="card">
+      <input type="text" id="lockInput" inputmode="text" autocomplete="off"
+             data-i18n-ph="lockPlaceholder" placeholder="教習所で案内されたパスコード">
+      <p id="lockError" class="lock-error" data-i18n="lockWrong" hidden>パスコードが違います</p>
+      <button id="btnUnlock" class="btn wide primary" data-i18n="lockBtn">はじめる</button>
+    </div>
+    <p class="school-name">株式会社ハッピードライビングスクール</p>
+  </section>
+
   <!-- スタート画面 -->
   <section id="screen-start" class="screen active">
     <h1 data-i18n="title">学科 効果測定</h1>
