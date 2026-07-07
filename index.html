@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>効果測定 - ハッピードライビングスクール</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="header-inner">
+    <div class="brand" id="brandTitle">効果測定</div>
+    <div class="lang-switch">
+      <button data-lang="ja" class="lang-btn active">日本語</button>
+      <button data-lang="vi" class="lang-btn">Tiếng Việt</button>
+      <button data-lang="ne" class="lang-btn">नेपाली</button>
+      <button data-lang="en" class="lang-btn">English</button>
+      <button data-lang="idn" class="lang-btn">Indonesia</button>
+    </div>
+  </div>
+</header>
+
+<main id="app">
+
+  <!-- スタート画面 -->
+  <section id="screen-start" class="screen active">
+    <h1 data-i18n="title">学科 効果測定</h1>
+    <p class="draft-note" id="draftNote" hidden></p>
+    <div class="card">
+      <label for="studentId" data-i18n="enterId">受講者IDを入力してください</label>
+      <input type="text" id="studentId" inputmode="text" autocomplete="off"
+             data-i18n-ph="idPlaceholder" placeholder="例：H1234">
+      <div class="furigana-row">
+        <span data-i18n="furigana">ふりがな</span>
+        <button id="furiganaToggle" class="toggle on" aria-pressed="true"><span class="knob"></span></button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2 data-i18n="chooseSet">テストを選んでください</h2>
+      <div id="setButtons" class="set-grid"></div>
+      <button id="btnAll" class="btn wide" data-i18n="allQuestions">全問チャレンジ</button>
+      <button id="btnReview" class="btn wide review" data-i18n="reviewMode">復習モード（間違えた問題）</button>
+    </div>
+
+    <button id="btnRecords" class="btn ghost wide" data-i18n="records">成績一覧を見る</button>
+    <p class="school-name">株式会社ハッピードライビングスクール</p>
+  </section>
+
+  <!-- 出題画面 -->
+  <section id="screen-quiz" class="screen">
+    <div class="quiz-top">
+      <button id="btnQuit" class="btn small ghost" data-i18n="quit">中断</button>
+      <div class="progress-text"><span id="qNum"></span></div>
+      <div class="cat-label" id="catLabel"></div>
+    </div>
+    <div class="progress-bar"><div id="progressFill"></div></div>
+
+    <div class="card question-card">
+      <div id="qImageWrap" hidden><img id="qImage" alt="標識・図"></div>
+      <div id="qText" class="q-text"></div>
+      <div id="qTextJa" class="q-text-ja" hidden></div>
+    </div>
+
+    <div id="answerButtons" class="ox-row">
+      <button id="btnMaru" class="ox maru">〇<span class="ox-sub" data-i18n="correctOpt">正しい</span></button>
+      <button id="btnBatsu" class="ox batsu">✖<span class="ox-sub" data-i18n="wrongOpt">誤り</span></button>
+    </div>
+
+    <div id="feedback" class="feedback" hidden>
+      <div id="fbHead" class="fb-head"></div>
+      <div id="fbRate" class="fb-rate"></div>
+      <div id="fbExp" class="fb-exp" hidden>
+        <div class="fb-exp-title" data-i18n="explanation">解説</div>
+        <div id="fbExpText"></div>
+        <div id="fbExpJa" class="q-text-ja" hidden></div>
+      </div>
+      <button id="btnNext" class="btn wide primary" data-i18n="next">次へ</button>
+    </div>
+  </section>
+
+  <!-- 結果画面 -->
+  <section id="screen-result" class="screen">
+    <h1 data-i18n="resultTitle">結果</h1>
+    <div class="card result-card">
+      <div class="rate-circle"><span id="finalRate"></span></div>
+      <div id="finalScore" class="final-score"></div>
+      <div id="passLabel" class="pass-label"></div>
+    </div>
+    <div id="wrongList" class="card" hidden>
+      <h2 data-i18n="wrongTitle">間違えた問題</h2>
+      <div id="wrongItems"></div>
+    </div>
+    <button id="btnRetryWrong" class="btn wide review" data-i18n="retryWrong">間違えた問題だけ解き直す</button>
+    <button id="btnRetryAll" class="btn wide" data-i18n="retryAll">もう一度挑戦する</button>
+    <button id="btnHome" class="btn ghost wide" data-i18n="backHome">ホームに戻る</button>
+  </section>
+
+  <!-- 成績一覧画面 -->
+  <section id="screen-records" class="screen">
+    <h1 data-i18n="recordsTitle">成績一覧</h1>
+    <div class="card">
+      <input type="text" id="recordFilter" data-i18n-ph="filterPlaceholder" placeholder="受講者IDで絞り込み">
+      <div class="table-wrap">
+        <table id="recordsTable">
+          <thead><tr>
+            <th data-i18n="thDate">日時</th><th>ID</th><th data-i18n="thSet">テスト</th>
+            <th data-i18n="thScore">得点</th><th data-i18n="thRate">正解率</th>
+          </tr></thead>
+          <tbody id="recordsBody"></tbody>
+        </table>
+      </div>
+      <p id="noRecords" data-i18n="noRecords" hidden>記録がありません</p>
+    </div>
+    <button id="btnExportCsv" class="btn wide" data-i18n="exportCsv">CSVをダウンロード（教務用）</button>
+    <button id="btnRecordsHome" class="btn ghost wide" data-i18n="backHome">ホームに戻る</button>
+  </section>
+
+</main>
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
