@@ -8,6 +8,10 @@
    ========================================================= */
 const GAS_ENDPOINT = "";
 
+/* パスコード（合言葉）。""（空文字）にするとパスコードなしで動作します。
+   変更すると、全端末で再入力が必要になります。 */
+const PASSCODE = "happy2026";
+
 const PASS_RATE = 90; // 合格ライン(%)
 const STORE_KEY = "hds_results_v1";
 
@@ -48,6 +52,10 @@ const I18N = {
     reviewLabel: "復習",
     allLabel: "全問",
     confirmQuit: "テストを中断しますか？（記録は保存されません）",
+    lockTitle: "パスコードを入力してください",
+    lockPlaceholder: "教習所で案内されたパスコード",
+    lockBtn: "はじめる",
+    lockWrong: "パスコードが違います",
     draftNote: ""
   },
   vi: {
@@ -85,6 +93,10 @@ const I18N = {
     reviewLabel: "Ôn tập",
     allLabel: "Tất cả",
     confirmQuit: "Dừng bài kiểm tra? (Kết quả sẽ không được lưu)",
+    lockTitle: "Nhập mã truy cập",
+    lockPlaceholder: "Mã do trường lái xe cung cấp",
+    lockBtn: "Bắt đầu",
+    lockWrong: "Mã truy cập không đúng",
     draftNote: "※ Bản dịch tiếng Việt là bản nháp, đang chờ người bản ngữ kiểm tra."
   },
   ne: {
@@ -122,6 +134,10 @@ const I18N = {
     reviewLabel: "पुनरावलोकन",
     allLabel: "सबै",
     confirmQuit: "परीक्षा रोक्ने हो? (नतिजा बचत हुँदैन)",
+    lockTitle: "पासकोड लेख्नुहोस्",
+    lockPlaceholder: "ड्राइभिङ स्कुलले दिएको पासकोड",
+    lockBtn: "सुरु गर्ने",
+    lockWrong: "पासकोड मिलेन",
     draftNote: "※ नेपाली अनुवाद मस्यौदा हो, मातृभाषी वक्ताबाट जाँच हुन बाँकी छ।"
   },
   en: {
@@ -159,6 +175,10 @@ const I18N = {
     reviewLabel: "Review",
     allLabel: "All",
     confirmQuit: "Quit this test? (Results will not be saved)",
+    lockTitle: "Enter the passcode",
+    lockPlaceholder: "Passcode given by the school",
+    lockBtn: "Start",
+    lockWrong: "Wrong passcode",
     draftNote: "* The English translation is a draft awaiting native-speaker review."
   },
   idn: {
@@ -196,6 +216,10 @@ const I18N = {
     reviewLabel: "Ulasan",
     allLabel: "Semua",
     confirmQuit: "Berhenti dari tes? (Hasil tidak akan disimpan)",
+    lockTitle: "Masukkan kode akses",
+    lockPlaceholder: "Kode dari sekolah mengemudi",
+    lockBtn: "Mulai",
+    lockWrong: "Kode akses salah",
     draftNote: "* Terjemahan bahasa Indonesia ini masih draf, menunggu pemeriksaan penutur asli."
   }
 };
@@ -501,6 +525,25 @@ $("btnRecordsHome").onclick = () => show("screen-start");
 $("recordFilter").oninput = renderRecords;
 $("btnExportCsv").onclick = exportCsv;
 
+/* ---------- パスコード ---------- */
+function checkLock() {
+  if (!PASSCODE || localStorage.getItem("hds_pass") === PASSCODE) {
+    show("screen-start");
+  } else {
+    show("screen-lock");
+  }
+}
+$("btnUnlock").onclick = () => {
+  if ($("lockInput").value.trim() === PASSCODE) {
+    localStorage.setItem("hds_pass", PASSCODE);
+    $("lockError").hidden = true;
+    show("screen-start");
+  } else {
+    $("lockError").hidden = false;
+  }
+};
+
 /* ---------- 初期化 ---------- */
 buildSetButtons();
 applyLang();
+checkLock();
