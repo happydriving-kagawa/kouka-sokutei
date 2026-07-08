@@ -52,6 +52,8 @@ const I18N = {
     reviewLabel: "復習",
     allLabel: "全問",
     confirmQuit: "テストを中断しますか？（記録は保存されません）",
+    stage1: "第1段階（学科1〜10）",
+    stage2: "第2段階（学科15〜26）",
     lockTitle: "パスコードを入力してください",
     lockPlaceholder: "教習所で案内されたパスコード",
     lockBtn: "はじめる",
@@ -93,6 +95,8 @@ const I18N = {
     reviewLabel: "Ôn tập",
     allLabel: "Tất cả",
     confirmQuit: "Dừng bài kiểm tra? (Kết quả sẽ không được lưu)",
+    stage1: "Giai đoạn 1 (Bài 1–10)",
+    stage2: "Giai đoạn 2 (Bài 15–26)",
     lockTitle: "Nhập mã truy cập",
     lockPlaceholder: "Mã do trường lái xe cung cấp",
     lockBtn: "Bắt đầu",
@@ -134,6 +138,8 @@ const I18N = {
     reviewLabel: "पुनरावलोकन",
     allLabel: "सबै",
     confirmQuit: "परीक्षा रोक्ने हो? (नतिजा बचत हुँदैन)",
+    stage1: "चरण १ (पाठ १–१०)",
+    stage2: "चरण २ (पाठ १५–२६)",
     lockTitle: "पासकोड लेख्नुहोस्",
     lockPlaceholder: "ड्राइभिङ स्कुलले दिएको पासकोड",
     lockBtn: "सुरु गर्ने",
@@ -175,6 +181,8 @@ const I18N = {
     reviewLabel: "Review",
     allLabel: "All",
     confirmQuit: "Quit this test? (Results will not be saved)",
+    stage1: "Stage 1 (Lessons 1–10)",
+    stage2: "Stage 2 (Lessons 15–26)",
     lockTitle: "Enter the passcode",
     lockPlaceholder: "Passcode given by the school",
     lockBtn: "Start",
@@ -216,6 +224,8 @@ const I18N = {
     reviewLabel: "Ulasan",
     allLabel: "Semua",
     confirmQuit: "Berhenti dari tes? (Hasil tidak akan disimpan)",
+    stage1: "Tahap 1 (Pelajaran 1–10)",
+    stage2: "Tahap 2 (Pelajaran 15–26)",
     lockTitle: "Masukkan kode akses",
     lockPlaceholder: "Kode dari sekolah mengemudi",
     lockBtn: "Mulai",
@@ -285,14 +295,15 @@ function applyLang() {
 /* ---------- スタート画面 ---------- */
 function buildSetButtons() {
   const cats = [...new Set(QUESTIONS.map(q => q.cat))];
-  const wrap = $("setButtons");
-  wrap.innerHTML = "";
+  const grid1 = $("setButtons1"), grid2 = $("setButtons2");
+  grid1.innerHTML = ""; grid2.innerHTML = "";
   cats.forEach(cat => {
+    const num = parseInt(cat.replace(/[^0-9]/g, ""), 10);
     const b = document.createElement("button");
     b.className = "set-btn";
     b.textContent = cat;
     b.onclick = () => startQuiz(QUESTIONS.filter(q => q.cat === cat), cat, false);
-    wrap.appendChild(b);
+    (num <= 10 ? grid1 : grid2).appendChild(b);  // 学科1〜10=第1段階、15〜=第2段階
   });
 }
 function getStudentId() {

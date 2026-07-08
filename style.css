@@ -138,4 +138,15 @@ th { background: #e3f2fd; color: var(--primary-dark); }
 td.rate-good { color: var(--green); font-weight: 700; }
 td.rate-bad { color: var(--red); font-weight: 700; }
 
-@media (max-width
+@media (max-width: 420px) {
+  .ox { font-size: 1.7rem; padding: 14px 6px; }
+  h1 { font-size: 1.2rem; }
+}
+
+/* 段階ラベル */
+.stage-label {
+  font-weight: 700; font-size: .95rem; margin: 12px 0 8px;
+  padding: 6px 12px; border-radius: 8px; color: #fff;
+}
+.stage-label.stage1 { background: var(--primary); }
+.stage-label.stage2 { background: var(--green); margin-top: 16px; }
