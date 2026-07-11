@@ -1411,11 +1411,11 @@ const QUESTIONS = [
    "e": "चोकमा दायाँ मोडिँदा केन्द्रको ठिक भित्री भागबाट ढिलो गतिमा जानुपर्छ। (पृष्ठ 64)"
   },
   "en": {
-   "q": "When turning right at an intersection, a car must pass slowly just OUTSIDE the intersection center.",
+   "q": "When turning right at an intersection, a car must pass slowly just outside the intersection center.",
    "e": "Turn right by passing slowly just INSIDE the intersection center. (P.64)"
   },
   "idn": {
-   "q": "Saat belok kanan di persimpangan, mobil harus melintas pelan tepat di sisi LUAR pusat persimpangan.",
+   "q": "Saat belok kanan di persimpangan, mobil harus melintas pelan tepat di sisi luar pusat persimpangan.",
    "e": "Belok kanan dengan melintas pelan tepat di sisi DALAM pusat persimpangan. (Hal.64)"
   }
  },
@@ -3211,7 +3211,7 @@ const QUESTIONS = [
    "e": "लामो/ठाडो ओरालोमा फुट ब्रेक धेरै चलाउँदा ब्रेक तातिएर फेड वा भेपर लक घटना हुनसक्छ। (पृष्ठ 196)"
   },
   "en": {
-   "q": "On long or steep downhill slopes, heavy use of the ENGINE brake may cause fade or vapor lock.",
+   "q": "On long or steep downhill slopes, heavy use of the engine brake may cause fade or vapor lock.",
    "e": "On long/steep descents, overusing the FOOT brake overheats it and may cause fade or vapor lock. (P.196)"
   },
   "idn": {
@@ -4363,11 +4363,11 @@ const QUESTIONS = [
    "e": "गन्तव्य होइन, प्रस्थान स्थानको प्रहरी प्रमुखको अनुमति चाहिन्छ। (पृष्ठ 272)"
   },
   "en": {
-   "q": "With permission from the police chief of the DESTINATION, people may ride on the bed of a truck.",
+   "q": "With permission from the police chief of the destination, people may ride on the bed of a truck.",
    "e": "The required permission is from the police chief of the DEPARTURE point, not the destination. (P.272)"
   },
   "idn": {
-   "q": "Dengan izin kepala polisi TEMPAT TUJUAN, orang boleh naik di bak truk.",
+   "q": "Dengan izin kepala polisi tempat tujuan, orang boleh naik di bak truk.",
    "e": "Izin yang diperlukan adalah dari kepala polisi TEMPAT KEBERANGKATAN, bukan tujuan. (Hal.272)"
   }
  },
@@ -5107,11 +5107,11 @@ const QUESTIONS = [
    "e": "स्ट्यान्डिङ वेभ मुख्यतः हावाको चाप कम भएको अवस्थामा हाइस्पिडमा लगातार चल्दा हुन्छ। (पृष्ठ 312)"
   },
   "en": {
-   "q": "The standing wave phenomenon always occurs when tire pressure is too HIGH.",
+   "q": "The standing wave phenomenon always occurs when tire pressure is too high.",
    "e": "Standing waves mainly occur during sustained high-speed driving with LOW tire pressure. (P.312)"
   },
   "idn": {
-   "q": "Fenomena standing wave pasti terjadi saat tekanan angin ban terlalu TINGGI.",
+   "q": "Fenomena standing wave pasti terjadi saat tekanan angin ban terlalu tinggi.",
    "e": "Standing wave terutama terjadi saat melaju cepat terus-menerus dengan tekanan ban RENDAH. (Hal.312)"
   }
  },
