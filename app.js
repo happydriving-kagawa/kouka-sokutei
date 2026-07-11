@@ -10,7 +10,7 @@ const GAS_ENDPOINT = "";
 
 /* パスコード（合言葉）。""（空文字）にするとパスコードなしで動作します。
    変更すると、全端末で再入力が必要になります。 */
-const PASSCODE = "happy2026";
+const PASSCODE = "";  // パスコードなしで運用中。再度使う場合は""の中に合言葉を入れる
 
 const PASS_RATE = 90; // 合格ライン(%)
 const STORE_KEY = "hds_results_v1";
